@@ -53,11 +53,11 @@ class Interval2D(object):
         return 31 * hash1 + hash2
 
     def draw(self):
-        xc = (self.x.left() + self.x.right()) / 2.0
-        yc = (self.y.left() + self.y.right()) / 2.0
+        xc = self.x.left()
+        yc = self.y.left()
         fig = pyplot.figure()
         ax = fig.add_subplot(111)
-        pyplot.gca().add_patch(pyplot.Rectangle((xc, yc), self.x.length() / 2.0, self.y.length() / 2.0))
+        pyplot.gca().add_patch(pyplot.Rectangle((xc, yc), self.x.length(), self.y.length()))
 
     def test():
         xmin = float(sys.argv[1])
