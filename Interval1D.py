@@ -23,10 +23,10 @@ class Interval1D(object):
         else:
             raise Exception('Illegal interval')
 
-    def left(self, parameter_list):
+    def left(self):
         return self.min
 
-    def right(self, parameter_list):
+    def right(self):
         return self.max
 
     def intersects(self, anotherI1D):
@@ -110,6 +110,7 @@ class Interval1D(object):
             return 1
         return 0
 
+    # 单元测试
     def test():
         intervals = [
             Interval1D(15.0, 33.0),
@@ -142,4 +143,4 @@ class Interval1D(object):
         print('')
 
 if __name__ == '__main__':
-    Interval1D.test() 
+    Interval1D.test()

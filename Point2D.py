@@ -1,4 +1,6 @@
 import math
+import functools
+from matplotlib import pyplot
 
 class Point2D(object):
     '''
@@ -14,7 +16,7 @@ class Point2D(object):
     '''
 
     def __init__(self, x, y):
-        if not isinstance(min, float) or not isinstance(max, float):
+        if not isinstance(x, float) or not isinstance(y, float):
             raise Exception('参数必须为浮点数!')
 
         self.x = x
@@ -61,3 +63,81 @@ class Point2D(object):
         dy = self.y - that.y;
         return dx*dx + dy*dy
 
+    @staticmethod
+    @functools.cmp_to_key
+    def XOrder(p, q):
+        if p.x < q.x:
+            return -1
+        if p.x > q.x:
+            return 1
+        return 0
+
+    @staticmethod
+    @functools.cmp_to_key
+    def YOrder(p, q):
+        if p.y < q.y:
+            return -1
+        if p.y > q.y:
+            return 1
+        return 0
+
+    @staticmethod
+    @functools.cmp_to_key
+    def ROrder(p, q):
+        delta = (p.x*p.x + p.y*p.y) - (q.x*q.x + q.y*q.y)
+        if delta < 0:
+            return -1
+        if delta > 0:
+            return 1
+        return 0
+
+    # def Atan2Order(self, q1, q2):
+    #     angle1 = self.angleTo(q1)
+    #     angle2 = self.angleTo(q2)
+    #     if angle1 < angle2:
+    #         return -1
+    #     elif angle1 > angle2:
+    #         return 1
+    #     else:
+    #         return 0
+
+    #
+    # Atan2Order
+    # PolarOrder
+    # DistanceToOrder
+    # 这几个比较函数暂不实现
+
+    def equals(self, other):
+        if other == self:
+            return True
+
+        if type(self) != type(other) :
+            return False
+
+        return self.x == other.x and self.y == other.y
+
+    def __str__(self):
+        return '( %s, %s )' % (self.x, self.y)
+
+    def hashCode(self):
+        hash1 = id(self.x)
+        hash2 = id(self.y)
+        return 31 * hash1 + hash2
+
+    def draw(self):
+        pyplot.plot(self.x, self.y, marker='.')
+
+    def drawTo(self, that):
+        pyplot.plot([self.x, that.x], [self.y, that.y])
+
+    def test():
+        a = Point2D(1.0, 2.0)
+        b = Point2D(2.0, 2.0)
+        c = Point2D(3.0, 3.0)
+        a.draw()
+        a.drawTo(b)
+        b.drawTo(c)
+        pyplot.show()
+
+if __name__ == '__main__':
+    Point2D.test()
