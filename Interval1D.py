@@ -64,8 +64,8 @@ class Interval1D(object):
     @staticmethod
     @functools.cmp_to_key
     def MinEndpointComparator(a, b):
-        # if type(a) != type(Interval1D) or type(b) != type(Interval1D) :
-        #     raise Exception("illegal compare")
+        if not isinstance(a, Interval1D) or not isinstance(b, Interval1D) :
+            raise Exception("illegal compare")
         
         if a.min < b.min:
             return -1
@@ -81,8 +81,8 @@ class Interval1D(object):
     @staticmethod
     @functools.cmp_to_key    
     def MaxEndpointComparator(a, b):
-        # if type(a) != type(Interval1D) or type(b) != type(Interval1D) :
-        #     raise Exception("illegal compare")
+        if not isinstance(a, Interval1D) or not isinstance(b, Interval1D) :
+            raise Exception("illegal compare")
         
         if a.max < b.max:
             return -1
@@ -98,8 +98,8 @@ class Interval1D(object):
     @staticmethod
     @functools.cmp_to_key    
     def LengthComparator(a, b):
-        # if type(a) != type(Interval1D) or type(b) != type(Interval1D) :
-        #     raise Exception("illegal compare")
+        if not isinstance(a, Interval1D) or not isinstance(b, Interval1D) :
+            raise Exception("illegal compare")
 
         alen = a.length()
         blen = b.length()

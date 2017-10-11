@@ -61,4 +61,3 @@ class Point2D(object):
         dy = self.y - that.y;
         return dx*dx + dy*dy
 
-    
