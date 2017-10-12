@@ -8,6 +8,18 @@ import sys
 import random
 
 class Interval2D(object):
+    '''
+    # 这是
+    # Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+    # Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+    # http://algs4.cs.princeton.edu
+    # 书中的辅助代码包algs4.jar中Interval2D的python实现，
+    # 以方便python爱好者的算法与数据结构的学习。
+    # 用法与jar包中的用法基本相同。
+    # 
+    # 17.10.11 by Munch_TZB
+    '''
+
     def __init__(self, x, y):
         if not isinstance(x, Interval1D) or not isinstance(y, Interval1D):
             raise Exception('Interval2D的构造参数必须为Interval1D')
@@ -74,10 +86,12 @@ class Interval2D(object):
         
         counter = Counter('hits');
         
-        for i in range(trials):
+        i = 0
+        while i < trials:
             x = random.random()
             y = random.random()
             point = Point2D(x, y)
+            i += 1
 
             if box.contains(point):
                 counter.increment()
@@ -88,8 +102,6 @@ class Interval2D(object):
 
         print(counter)
         print('box area = %s' % box.area())
-
-
 
 if __name__ == '__main__':
     Interval2D.test()
