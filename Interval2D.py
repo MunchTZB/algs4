@@ -1,6 +1,6 @@
-from Interval1D import Interval1D
-from Point2D import Point2D
-from Counter import Counter
+from .Interval1D import Interval1D
+from .Point2D import Point2D
+from .Counter import Counter
 from matplotlib import patches
 from matplotlib import pyplot
 
