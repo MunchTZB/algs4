@@ -6,6 +6,9 @@ class FixedCapacityStackOfStrings(object):
     def isEmpty(self):
         return self.N == 0
 
+    def isFull(self):
+        return self.N >= len(self.a)
+
     def size(self):
         return self.N
 
