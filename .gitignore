@@ -1,1 +1,4 @@
 __pycache__/
+algs4-data/
+/*.py
+.DS_Store

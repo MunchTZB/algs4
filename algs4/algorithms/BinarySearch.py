@@ -1,6 +1,6 @@
 import sys
 import os
-from .Counter import Counter
+from ..implements import implements
 
 class BinarySearch(object):
     @staticmethod
@@ -19,7 +19,7 @@ class BinarySearch(object):
         return -1
 
     def main():
-        count = Counter('BSCount')
+        count = implements.Counter('BSCount')
 
         whiteListPath = os.path.abspath(sys.argv[1])
         targetListPath = os.path.abspath(sys.argv[2])
@@ -33,6 +33,3 @@ class BinarySearch(object):
                 count.increment()
         
         print(count)
-
-if __name__ == '__main__':
-    BinarySearch.main()
